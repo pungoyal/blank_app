@@ -26,18 +26,7 @@ class EmailsController < ApplicationController
   # POST /emails.json
   def create
     binding.pry
-
-    @email = Email.new(email_params)
-
-    respond_to do |format|
-      if @email.save
-        format.html { redirect_to @email, notice: 'Email was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @email }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @email.errors, status: :unprocessable_entity }
-      end
-    end
+    render json: {}, status: :ok
   end
 
   # PATCH/PUT /emails/1
