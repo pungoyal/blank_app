@@ -1,4 +1,5 @@
 class EmailsController < ApplicationController
+  protect_from_forgery with: :null_session, only: [:create]
   before_action :set_email, only: [:show, :edit, :update, :destroy]
 
   # GET /emails
@@ -24,6 +25,8 @@ class EmailsController < ApplicationController
   # POST /emails
   # POST /emails.json
   def create
+    binding.pry
+
     @email = Email.new(email_params)
 
     respond_to do |format|
